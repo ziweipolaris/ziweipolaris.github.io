@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页 - 紫微Polaris</title>
+    <title>个人主页 - ziweiPolaris</title>
     <style>
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
@@ -13,12 +13,10 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 600px;
-            margin: 60px auto;
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 40px 32px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: transparent;
+            padding: 40px 20px;
             text-align: center;
         }
         .logo-title {
@@ -34,98 +32,149 @@
         }
         h1 {
             margin: 0 0 12px 0;
-            font-size: 2.2em;
-            color: #5a189a;
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         p {
-            color: #444;
+            color: #ffffff;
             font-size: 1.1em;
             margin-bottom: 24px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         .links a {
             display: inline-block;
             margin: 0 10px;
-            color: #5a189a;
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.2s;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
         }
         .links a:hover {
-            color: #22223b;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
         }
         .cases {
             margin-top: 36px;
         }
         .cases h2 {
-            color: #5a189a;
-            margin-bottom: 18px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .case-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             justify-content: center;
         }
         .case-card {
-            background: #f6f6ff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(90,24,154,0.07);
-            padding: 18px 20px;
-            width: 220px;
-            transition: transform 0.18s, box-shadow 0.18s;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            backdrop-filter: blur(10px);
         }
         .case-card:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 6px 18px rgba(90,24,154,0.13);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.95);
+        }
+        .case-image {
+            width: 100%;
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .case-content {
+            padding: 20px;
         }
         .case-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.1em;
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
             color: #22223b;
         }
         .case-card p {
             margin: 0;
-            color: #444;
-            font-size: 0.98em;
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
         }
         .data-center {
-            margin-top: 38px;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .data-center h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .data-center p {
+            color: #ffffff;
+            opacity: 0.9;
         }
         .data-center-link {
             display: inline-block;
-            margin-top: 8px;
-            padding: 8px 22px;
+            margin-top: 10px;
+            padding: 10px 24px;
             background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
             color: #fff;
-            border-radius: 22px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.2s;
+            transition: opacity 0.2s;
         }
         .data-center-link:hover {
-            background: linear-gradient(90deg, #5a189a 0%, #8ec5fc 100%);
+            opacity: 0.9;
         }
         .tech-stack {
-            margin-top: 38px;
+            margin-top: 60px;
             text-align: left;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
         }
         .tech-stack h2 {
-            color: #5a189a;
+            color: #ffffff;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .tech-stack ul {
-            padding-left: 22px;
-            color: #444;
+            padding-left: 20px;
+            color: #ffffff;
         }
-        @media (max-width: 700px) {
+        .tech-stack li {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
             .container {
-                padding: 18px 4vw;
+                padding: 20px 15px;
+                margin: 10px;
             }
             .case-list {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
-            .case-card {
-                width: 95%;
+            h1 {
+                font-size: 2em;
+            }
+            .cases h2, .data-center h2, .tech-stack h2 {
+                font-size: 1.5em;
             }
         }
     </style>
@@ -140,9 +189,9 @@
                   <circle cx="32" cy="32" r="6" fill="#5a189a"/>
                 </svg>
             </div>
-            <h1>紫微 Polaris</h1>
+            <h1>ziweipolaris</h1>
         </div>
-        <p>你好！我是紫微Polaris，一名热爱编程与探索的开发者。欢迎来到我的个人主页！</p>
+        <p>你好！我是ziweipolaris，一名热爱编程与探索的开发者。欢迎来到我的个人主页！</p>
         <div class="links">
             <a href="https://github.com/ziweipolaris" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">邮箱</a>
@@ -151,29 +200,45 @@
           <h2>互动仿真案例</h2>
           <div class="case-list">
             <div class="case-card">
-              <h3>多Agent AFSIM脚本生成与运行</h3>
-              <p>基于AFSIM的多智能体仿真脚本自动生成与可视化运行。</p>
+              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=160&fit=crop&crop=center')"></div>
+              <div class="case-content">
+                <h3>多Agent AFSIM脚本生成与运行</h3>
+                <p>基于AFSIM的多智能体仿真脚本自动生成与可视化运行。</p>
+              </div>
             </div>
             <div class="case-card">
-              <h3>无人机集群系统仿真</h3>
-              <p>支持多无人机协同、任务分配与动态仿真。</p>
+              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=160&fit=crop&crop=center')"></div>
+              <div class="case-content">
+                <h3>无人机集群系统仿真</h3>
+                <p>支持多无人机协同、任务分配与动态仿真。</p>
+              </div>
             </div>
             <div class="case-card">
-              <h3>反无人机系统仿真</h3>
-              <p>模拟反制策略、目标识别与拦截流程。</p>
+              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=160&fit=crop&crop=center')"></div>
+              <div class="case-content">
+                <h3>反无人机系统仿真</h3>
+                <p>模拟反制策略、目标识别与拦截流程。</p>
+              </div>
             </div>
             <div class="case-card">
-              <h3>OMNet网络仿真</h3>
-              <p>网络拓扑、协议与流量仿真分析。</p>
+              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=160&fit=crop&crop=center')"></div>
+              <div class="case-content">
+                <h3>OMNet网络仿真</h3>
+                <p>网络拓扑、协议与流量仿真分析。</p>
+              </div>
             </div>
             <div class="case-card">
-              <h3>Genesis物理仿真</h3>
-              <p>基于Genesis引擎的高保真物理环境仿真。</p>
+              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=160&fit=crop&crop=center')"></div>
+              <div class="case-content">
+                <h3>Genesis物理仿真</h3>
+                <p>基于Genesis引擎的高保真物理环境仿真。</p>
+              </div>
             </div>
           </div>
         </div>
         <div class="data-center">
           <h2>数据管理中心</h2>
+          <p>统一的数据存储、处理与可视化平台</p>
           <a href="#data-center" class="data-center-link">进入数据管理中心</a>
         </div>
         <div class="tech-stack">
@@ -183,8 +248,10 @@
             <li>多种 Python 服务（仿真调度、数据处理等）</li>
             <li>WebSocket 实时通信</li>
             <li>Docker 容器化部署</li>
+            <li>Redis 缓存与消息队列</li>
+            <li>PostgreSQL 数据库</li>
           </ul>
         </div>
     </div>
 </body>
-</html>
+</html> 
