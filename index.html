@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            background: #1a1a1a;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -36,11 +36,37 @@
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+        .intro-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .intro-section h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
         p {
             color: #ffffff;
             font-size: 1.1em;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            line-height: 1.6;
+        }
+        .highlight {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .links {
+            margin: 24px 0;
         }
         .links a {
             display: inline-block;
@@ -58,92 +84,83 @@
             background: rgba(255,255,255,0.2);
             transform: translateY(-1px);
         }
-        .cases {
-            margin-top: 36px;
+        .projects {
+            margin-top: 40px;
         }
-        .cases h2 {
+        .projects h2 {
             color: #ffffff;
             margin-bottom: 30px;
             font-size: 2em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        .case-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            justify-content: center;
-        }
-        .case-card {
-            background: rgba(255,255,255,0.9);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-            backdrop-filter: blur(10px);
-        }
-        .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            background: rgba(255,255,255,0.95);
-        }
-        .case-image {
-            width: 100%;
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .case-content {
-            padding: 20px;
-        }
-        .case-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.2em;
-            color: #22223b;
-        }
-        .case-card p {
-            margin: 0;
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-        .data-center {
-            margin-top: 60px;
-            padding: 40px;
+        .project-category {
             background: rgba(255,255,255,0.1);
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
+            margin: 20px 0;
+            padding: 30px;
+            text-align: left;
         }
-        .data-center h2 {
+        .project-category h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+        .project-list li {
+            margin: 10px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            border-left: 4px solid #8ec5fc;
+        }
+        .project-list li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project-list li a:hover {
+            text-decoration: underline;
+        }
+        .goals-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            margin: 40px 0;
+            padding: 30px;
+            text-align: left;
+        }
+        .goals-section h2 {
             color: #ffffff;
             margin-bottom: 20px;
             font-size: 1.8em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
         }
-        .data-center p {
+        .goals-list {
+            list-style: none;
+            padding: 0;
+        }
+        .goals-list li {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
             color: #ffffff;
-            opacity: 0.9;
-        }
-        .data-center-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 24px;
-            background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
-            color: #fff;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-        .data-center-link:hover {
-            opacity: 0.9;
+            border-left: 4px solid #e0c3fc;
         }
         .tech-stack {
-            margin-top: 60px;
+            margin-top: 40px;
             text-align: left;
             background: rgba(255,255,255,0.1);
-            padding: 40px;
+            padding: 30px;
             border-radius: 16px;
             border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
@@ -153,27 +170,46 @@
             margin-bottom: 25px;
             font-size: 1.8em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
         }
-        .tech-stack ul {
-            padding-left: 20px;
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tech-category {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .tech-category h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .tech-category ul {
+            list-style: none;
+            padding: 0;
             color: #ffffff;
         }
-        .tech-stack li {
-            margin-bottom: 8px;
+        .tech-category li {
+            margin: 8px 0;
+            padding: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
         }
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
                 margin: 10px;
             }
-            .case-list {
+            .tech-categories {
                 grid-template-columns: 1fr;
-                gap: 15px;
             }
             h1 {
                 font-size: 2em;
             }
-            .cases h2, .data-center h2, .tech-stack h2 {
+            .projects h2, .intro-section h2, .goals-section h2, .tech-stack h2 {
                 font-size: 1.5em;
             }
         }
@@ -191,66 +227,120 @@
             </div>
             <h1>ziweipolaris</h1>
         </div>
-        <p>你好！我是ziweipolaris，一名热爱编程与探索的开发者。欢迎来到我的个人主页！</p>
+        
+        <div class="intro-section">
+            <h2>🚀 个人简介</h2>
+            <p>你好！我是ziweipolaris，一名专注于航空系统设计与仿真的工程师。通过多年的跨领域工作经历，我在系统集成方面积累了丰富的经验。</p>
+            
+            <div class="highlight">
+                <p><strong>🎯 核心能力：</strong>系统集成 | C++/Python开发 | 无人机(集群)/反无人机系统设计 | 飞行控制系统开发 | AFSIM作战仿真系统</p>
+            </div>
+            
+            <p><strong>💼 工作经历概览：</strong></p>
+            <p>• <strong>早期经历：</strong>Web前端开发、多旋翼飞控系统开发、算法开发、数据爬虫开发</p>
+            <p>• <strong>算法与系统开发：</strong>图像增强、目标检测算法开发、反无人机装备指控系统开发</p>
+            <p>• <strong>无人机系统设计：</strong>无人机总体设计、CATIA二次开发、集群编队控制算法</p>
+            <p>• <strong>仿真系统设计：</strong>AFSIM/OMNET++仿真系统研发</p>
+            
+            <p>虽然我在单个专业方向的积累深度有限，但这些多元化的经历让我具备了强大的系统整合能力，能够从全局视角解决复杂的工程问题。</p>
+        </div>
+
         <div class="links">
             <a href="https://github.com/ziweipolaris" target="_blank">GitHub</a>
             <a href="mailto:your@email.com">邮箱</a>
         </div>
-        <div class="cases">
-          <h2>互动仿真案例</h2>
-          <div class="case-list">
-            <div class="case-card">
-              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=160&fit=crop&crop=center')"></div>
-              <div class="case-content">
-                <h3>多Agent AFSIM脚本生成与运行</h3>
-                <p>基于AFSIM的多智能体仿真脚本自动生成与可视化运行。</p>
-              </div>
-            </div>
-            <div class="case-card">
-              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=160&fit=crop&crop=center')"></div>
-              <div class="case-content">
-                <h3>无人机集群系统仿真</h3>
-                <p>支持多无人机协同、任务分配与动态仿真。</p>
-              </div>
-            </div>
-            <div class="case-card">
-              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=400&h=160&fit=crop&crop=center')"></div>
-              <div class="case-content">
-                <h3>反无人机系统仿真</h3>
-                <p>模拟反制策略、目标识别与拦截流程。</p>
-              </div>
-            </div>
-            <div class="case-card">
-              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=160&fit=crop&crop=center')"></div>
-              <div class="case-content">
-                <h3>OMNet网络仿真</h3>
-                <p>网络拓扑、协议与流量仿真分析。</p>
-              </div>
-            </div>
-            <div class="case-card">
-              <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=160&fit=crop&crop=center')"></div>
-              <div class="case-content">
-                <h3>Genesis物理仿真</h3>
-                <p>基于Genesis引擎的高保真物理环境仿真。</p>
-              </div>
-            </div>
-          </div>
+
+        <div class="goals-section">
+            <h2>🎯 挖坑目标</h2>
+            <p>基于兴趣和能力边界，我将聚焦航空领域，设计个人爱好的飞行器系统，分阶段实施：</p>
+            <ul class="goals-list">
+                <li><strong>新型飞行器系统设计</strong><br>结构、气动、机电设计、分析与优化</li>
+                <li><strong>控制系统设计与仿真</strong><br>飞行控制算法开发与验证</li>
+                <li><strong>集群系统设计</strong><br>设计协作系统，多Agent仿真</li>
+            </ul>
         </div>
-        <div class="data-center">
-          <h2>数据管理中心</h2>
-          <p>统一的数据存储、处理与可视化平台</p>
-          <a href="#data-center" class="data-center-link">进入数据管理中心</a>
+
+        <div class="projects">
+            <h2>📦 开源项目</h2>
+            <p style="text-align: center; color: #ffffff; opacity: 0.9;">以下项目按类别整理，部分项目仍在完善中，欢迎关注和交流！</p>
+            
+            <div class="project-category">
+                <h3>🎮 AFSIM脚本生成类</h3>
+                <ul class="project-list">
+                    <li>CMO(Command)游戏装备数据库转换AFSIM脚本</li>
+                    <li>DCS World的Moose脚本转换生成AFSIM脚本</li>
+                    <li>基于自然语言想定描述生成AFSIM脚本</li>
+                </ul>
+            </div>
+
+            <div class="project-category">
+                <h3>🎯 仿真工具</h3>
+                <ul class="project-list">
+                    <li>反无人机系统仿真</li>
+                    <li>无人机集群控制仿真系统</li>
+                    <li>红外仿真工具</li>
+                </ul>
+            </div>
+
+            <div class="project-category">
+                <h3>🔧 CATIA二次开发</h3>
+                <ul class="project-list">
+                    <li>CATIA结构重量分析工具</li>
+                    <li>CATIA燃油重心分析工具</li>
+                    <li>飞行器概念设计生成工具</li>
+                </ul>
+            </div>
+
+            <div class="project-category">
+                <h3>🛠️ 杂项工具</h3>
+                <ul class="project-list">
+                    <li><a href="https://github.com/ziweipolaris/simple-crawler" target="_blank">atec2018语义相似度</a></li>
+                    <li><a href="https://github.com/ziweipolaris/watermark-removal" target="_blank">水印去除工具</a></li>
+                    <li><a href="https://github.com/ziweipolaris/simple-crawler" target="_blank">tornado爬虫示例</a></li>
+                </ul>
+            </div>
         </div>
+
         <div class="tech-stack">
-          <h2>后台服务与技术栈</h2>
-          <ul>
-            <li>MinIO 分布式对象存储</li>
-            <li>多种 Python 服务（仿真调度、数据处理等）</li>
-            <li>WebSocket 实时通信</li>
-            <li>Docker 容器化部署</li>
-            <li>Redis 缓存与消息队列</li>
-            <li>PostgreSQL 数据库</li>
-          </ul>
+            <h2>💻 技术栈</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>编程语言</h3>
+                    <ul>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>MATLAB</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>仿真平台</h3>
+                    <ul>
+                        <li>AFSIM</li>
+                        <li>OMNET++</li>
+                        <li>DCS World</li>
+                        <li>自研仿真框架</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>设计软件</h3>
+                    <ul>
+                        <li>CATIA V5/V6</li>
+                        <li>SolidWorks</li>
+                        <li>AutoCAD</li>
+                        <li>ANSYS</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>专业领域</h3>
+                    <ul>
+                        <li>无人机系统设计</li>
+                        <li>飞行控制系统</li>
+                        <li>集群算法</li>
+                        <li>目标检测</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </body>
